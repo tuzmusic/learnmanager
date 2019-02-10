@@ -36,15 +36,18 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.16"
-  spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rake"#, "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
-
   spec.add_development_dependency "pry"
   spec.add_development_dependency "pry-byebug"
   spec.add_development_dependency "pry-rescue"
+  spec.add_development_dependency "standalone_migrations"
 
-  spec.add_dependency "activerecord"
-  spec.add_dependency "sqlite3"
-  spec.add_dependency "database_cleaner"
-  
+  spec.add_dependency "capybara"
+  spec.add_dependency "poltergeist"
+  spec.add_dependency 'dotenv'
+  spec.add_dependency 'selenium-webdriver'
+  spec.add_dependency 'sqlite3','~> 1.3.6'
+  spec.add_dependency 'sinatra-activerecord'
+
 end

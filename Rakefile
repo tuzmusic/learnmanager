@@ -19,3 +19,9 @@ load 'active_record/railties/databases.rake'
 task :console => :environment do
   Pry.start
 end
+
+# --------- FROM GEM BUILD --------- 
+require "bundler/gem_tasks"
+require "rspec/core/rake_task"
+
+RSpec::Core::RakeTask.new(:spec)

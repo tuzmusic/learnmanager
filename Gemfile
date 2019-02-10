@@ -1,8 +1,8 @@
+# ------- FROM GEM BUILD --------
+
 source "https://rubygems.org"
 
-gem "rspec"
-gem "activerecord"
-gem "sqlite3"
-gem "rake"
-gem "database_cleaner"
-gem "pry"
+git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+
+# Specify your gem's dependencies in LearnManager.gemspec
+gemspec
