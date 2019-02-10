@@ -11,5 +11,17 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 0) do
+  create_table :topics, force: true do |t|
+    t.string :name
+  end
 
+  create_table :units, force: true do |t|
+    t.string :name
+    t.belongs_to :topic, index: true
+  end
+
+create_table :lessons, force: true do |t|
+    t.string :name
+    t.belongs_to :unit, index: true
+  end
 end

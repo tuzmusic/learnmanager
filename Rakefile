@@ -1,4 +1,8 @@
+require 'bundler/setup'
+Bundler.require
 require 'active_record'
+require 'sinatra/activerecord/rake'
+require 'pry'
 
 task :environment do
   ENV["ACTIVE_RECORD_ENV"] ||= "development"
