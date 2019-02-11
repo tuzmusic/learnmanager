@@ -5,6 +5,7 @@ RSpec.describe CurriculumParser do
   let(:cp) { CurriculumParser.new }
 
   before :each do
+    DatabaseCleaner.clean_with(:truncation, {except: %w[curriculums]})
     cp.seed_curriculum
   end
     
