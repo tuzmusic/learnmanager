@@ -7,7 +7,14 @@ class User < ActiveRecord::Base
   # t.string :lesson_id
   # t.integer :progress_id  
 
-  has_one :topic
-  has_one :unit
-  has_one :lesson
+  belongs_to :topic
+  belongs_to :unit
+  belongs_to :lesson
+
+  def self.make
+    parser = CurriculumParser.new
+    hash = parser.curriculum_hash # fetches from existing Curriculum object if there is one
+
+  end
+
 end
