@@ -31,4 +31,4 @@ def create_tables
   load("#{path_to_current_file}/../db/schema.rb")
 end
 
-connecte
+connect
