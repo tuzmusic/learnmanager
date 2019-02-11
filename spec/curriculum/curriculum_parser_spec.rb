@@ -19,7 +19,6 @@ RSpec.describe CurriculumParser do
     end
 
     it "creates the lessons" do
-      binding.pry
       expect(Lesson.find(44431).title).to eq "React Redux Portfolio Project" 
     end
 
