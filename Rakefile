@@ -24,6 +24,10 @@ task :console => :environment do
   Pry.start
 end
 
+task :seed_curriculum => :environment do
+  CurriculumParser.new.seed_curriculum
+end
+
 # --------- FROM GEM BUILD --------- 
 require "bundler/gem_tasks"
 require "rspec/core/rake_task"
