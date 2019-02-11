@@ -42,6 +42,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry-byebug"
   spec.add_development_dependency "pry-rescue"
   spec.add_development_dependency "standalone_migrations"
+  spec.add_development_dependency "database_cleaner", git: 'https://github.com/bmabey/database_cleaner.git'
+"
 
   spec.add_dependency "capybara"
   spec.add_dependency "poltergeist"

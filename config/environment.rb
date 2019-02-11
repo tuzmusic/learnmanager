@@ -16,7 +16,8 @@ Dir[File.join(File.dirname(__FILE__), "../lib", "*.rb")].each {|f| require f}
 def connect
   @connection = ActiveRecord::Base.establish_connection(
     adapter: "sqlite3",
-    database: "../db/learnmanager-development.db",
+    database: "db/learnmanager-#{ENV['ACTIVE_RECORD_ENV']}.db",
+    # database: "db/learnmanager-development.db",
   )
   create_tables unless tables_exist?
 end

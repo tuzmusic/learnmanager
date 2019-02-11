@@ -19,14 +19,16 @@ class CurriculumParser < LearnScraper
   end
 
   def seed_curriculum
-    binding.pry
     curriculum_hash['topics'].each do |topic_hash|
-      binding.pry
-      Topic.create ActiveSupport::JSON.decode(topic_hash)
+      topic_hash.delete['units']
+      Topic.create topic_hash
+      
       topic_hash['units'].each do |unit_hash|
-        Topic.units.create ActiveSupport::JSON.decode(unit_hash)
+        unit_hash.delete['lessons']
+        Topic.units.create unit_hash
+        
         unit_hash['lessons'].each do |lesson_hash|
-          Units.lessons.create ActiveSupport::JSON.decode(lesson_hash)
+          Units.lessons.create lesson_hash
         end
       end
     end
