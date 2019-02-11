@@ -12,16 +12,35 @@
 
 ActiveRecord::Schema.define(version: 0) do
   create_table :topics, force: true do |t|
-    t.string :name
+    t.string :slug
+    t.string :title
+    t.boolean :completed_all
+    t.boolean :started_any
+    t.boolean :visible
   end
 
   create_table :units, force: true do |t|
-    t.string :name
-    t.belongs_to :topic, index: true
+    t.string :slug
+    t.string :title
+    t.boolean :completed_all
+    t.boolean :started_any
+    t.boolean :visible
+
+    t.belongs_to :lesson, index: true
   end
 
-create_table :lessons, force: true do |t|
-    t.string :name
+  create_table :lessons, force: true do |t|
+    t.boolean :complete
+    t.string :started_at 
+    t.string :updated_at 
+    t.boolean :viewed
+    t.string :github_repo_name 
+    t.string :content_type 
+    t.string :canonical_kind 
+    t.string :slug 
+    t.string :title 
+    t.boolean :visible
+
     t.belongs_to :unit, index: true
   end
 end
