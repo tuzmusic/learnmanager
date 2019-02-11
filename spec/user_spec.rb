@@ -9,17 +9,24 @@ RSpec.describe User do
       expect(user.lesson).to eq Lesson.find_by(slug: 'javascript-basics-quiz') # this will obviously change once I complete more lessons!!!!!! 
     end
 
-    it "" do
-      exit
-    end
   end
-
-  describe "update" do
-    it "gets the current curriculum info" do
-      
+  
+  describe "fetch" do
+    
+    let(:user) { 
+      User.make.update(lesson_id: nil) 
+      expect(User.first.lesson).to eq nil 
+    }
+    
+    before :each do
+      user.fetch
     end
     
     it "updates the user's progress" do
+      expect(user.lesson).to eq Lesson.find_by(slug: 'javascript-basics-quiz') # this will obviously change once I complete more lessons!!!!!! 
+    end
+
+    xit "updates the Curriculm object's hash_string property" do
       
     end
 

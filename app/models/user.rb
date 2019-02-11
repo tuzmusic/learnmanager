@@ -24,4 +24,10 @@ class User < ActiveRecord::Base
     User.create(email: ENV['LEARN_USERNAME'], password: ENV['LEARN_PASSWORD'], lesson_id: progress['lesson_id'])
   end
 
+  def fetch
+    parser = CurriculumParser.new
+    parser.log_in
+    
+  end
+
 end

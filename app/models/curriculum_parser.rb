@@ -12,6 +12,8 @@ Capybara.app_host = 'http://www.google.com'
 class CurriculumParser < LearnScraper
   @curriculum_hash
 
+  
+
   def hash_string
     if Curriculum.first == nil
       puts "Logging into Learn.co"
