@@ -14,6 +14,7 @@ class CurriculumParser < LearnScraper
 
   def hash_string
     if Curriculum.first == nil
+      puts "Logging into Learn.co"
       log_in
       hash_string = s.body.split('gon.track_nav_data=').last.split('gon.track_nav_current_lesson_id').first
       Curriculum.create hash_string: hash_string
@@ -27,7 +28,6 @@ class CurriculumParser < LearnScraper
   end
 
   def seed_curriculum
-
     curriculum_hash['topics'].each do |topic_hash|
       units = topic_hash.delete 'units'
       topic = Topic.create topic_hash

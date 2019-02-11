@@ -12,11 +12,11 @@ RSpec.configure do |config|
   end
 
   config.before do
-    DatabaseCleaner.clean
+    DatabaseCleaner.clean_with(:truncation, {except: %w[curriculums]})
   end
 
   config.after do
-    DatabaseCleaner.clean
+    DatabaseCleaner.clean_with(:truncation, {except: %w[curriculums]})
   end
 
 end
