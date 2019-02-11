@@ -46,5 +46,17 @@ ActiveRecord::Schema.define(version: 0) do
 
   create_table :curriculums, force: true do |t|
     t.string :hash_string
+    t.string :slug
+    t.string :title
+  end
+
+  create_table :users, force: true do |t|
+    t.string :email
+    t.string :password
+
+    t.integer :topic_id
+    t.integer :unit_id
+    t.string :lesson_id
+    t.integer :progress_id
   end
 end

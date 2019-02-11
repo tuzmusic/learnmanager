@@ -28,7 +28,12 @@ class CurriculumParser < LearnScraper
   end
 
   def seed_curriculum
-    curriculum_hash['topics'].each do |topic_hash|
+    hash = curriculum_hash
+    string = hash_string
+    Curriculum.destroy_all
+    Curriculum.create(hash_string: string, id: hash['id'], slug: hash['slug'], title: hash['title'])
+
+    hash['topics'].each do |topic_hash|
       units = topic_hash.delete 'units'
       topic = Topic.create topic_hash
       units.each do |unit_hash|

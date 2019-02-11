@@ -10,6 +10,10 @@ RSpec.describe CurriculumParser do
     
   describe "seed_curriculum" do
 
+    it "creates the curriculum" do
+      expect(Curriculum.first.title).to eq "Full Stack Web Development V6"
+    end
+
     it "creates the topics" do
       expect(Topic.find(44341).title).to eq "Redux" 
     end
