@@ -12,13 +12,22 @@ Capybara.app_host = 'http://www.google.com'
 class CurriculumParser < LearnScraper
   @curriculum_hash
 
+  def hash_string
+    if Curriculum.first == nil
+      log_in
+      hash_string = s.body.split('gon.track_nav_data=').last.split('gon.track_nav_current_lesson_id').first
+      Curriculum.create hash_string: hash_string
+    end
+
+    Curriculum.first.hash_string
+  end
+
   def curriculum_hash
-    log_in
-    hash_string = s.body.split('gon.track_nav_data=').last.split('gon.track_nav_current_lesson_id').first
     @curriculum_hash ||=  JSON.parse(/\{.*\}/.match(hash_string)[0])
   end
 
   def seed_curriculum
+
     curriculum_hash['topics'].each do |topic_hash|
       units = topic_hash.delete 'units'
       topic = Topic.create topic_hash

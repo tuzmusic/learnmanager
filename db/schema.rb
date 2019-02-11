@@ -43,4 +43,8 @@ ActiveRecord::Schema.define(version: 0) do
 
     t.belongs_to :unit, index: true
   end
+
+  create_table :curriculums, force: true do |t|
+    t.string :hash_string
+  end
 end
