@@ -40,6 +40,5 @@ class CurriculumParser < LearnScraper
         end
       end
     end
-    binding.pry
   end
 end
