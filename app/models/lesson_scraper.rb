@@ -16,7 +16,7 @@ class LearnScraper
     @session ||= Capybara::Session.new(:poltergeist)
   end
 
-  LOGIN_URL = 'https://learn.co/sign_in?sign_in=true'
+  @LOGIN_URL = 'https://learn.co/sign_in?sign_in=true'
 
   def access_url
     s.visit url
@@ -27,7 +27,7 @@ class LearnScraper
   end
 
   def log_in # delivers us to the user's home page
-    s.visit LOGIN_URL
+    s.visit ENV['LOGIN_URL']
     s.fill_in 'Email Address', with: @email
     s.fill_in 'Password', with: @password
     s.click_on 'Sign in'

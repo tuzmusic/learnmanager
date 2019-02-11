@@ -33,3 +33,4 @@ end
 
 connect
 require_relative "../env"
+ENV['LOGIN_URL'] = 'https://learn.co/sign_in?sign_in=true'
