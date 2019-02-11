@@ -32,3 +32,4 @@ def create_tables
 end
 
 connect
+require_relative "../env"

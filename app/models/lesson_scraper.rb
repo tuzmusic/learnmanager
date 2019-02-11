@@ -1,3 +1,4 @@
+require_relative '../../config/environment'
 require 'rubygems'
 require 'capybara'
 require 'capybara/dsl'
