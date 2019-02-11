@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.boolean :started_any
     t.boolean :visible
 
-    t.belongs_to :lesson, index: true
+    t.belongs_to :topic, index: true
   end
 
   create_table :lessons, force: true do |t|
