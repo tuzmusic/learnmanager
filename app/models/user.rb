@@ -7,14 +7,21 @@ class User < ActiveRecord::Base
   # t.string :lesson_id
   # t.integer :progress_id  
 
-  belongs_to :topic
-  belongs_to :unit
   belongs_to :lesson
+  
+  def topic
+    lesson.topic
+  end
+  
+  def unit
+    lesson.topic.unit
+  end
 
   def self.make
     parser = CurriculumParser.new
     hash = parser.curriculum_hash # fetches from existing Curriculum object if there is one
-
+    progress = hash['most_recent_progress']
+    User.create(email: ENV['LEARN_USERNAME'], password: ENV['LEARN_PASSWORD'], lesson_id: progress['lesson_id'])
   end
 
 end
