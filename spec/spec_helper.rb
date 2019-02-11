@@ -8,6 +8,11 @@ RSpec.configure do |config|
   DatabaseCleaner.strategy = :truncation
 
   config.before(:suite) do
+    if Lesson.count == 0
+      puts "There are no lessons in the database. Would you like to seed the curriculum? (Y/N)"
+      input = $stdin.gets.strip
+      CurriculumParser.new.seed_curriculum if input.upcase == "Y"
+    end
     DatabaseCleaner.clean_with(:truncation, {except: %w[curriculums lessons units topics]})
   end
 

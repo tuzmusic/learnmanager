@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 0) do
 
     t.integer :topic_id
     t.integer :unit_id
-    t.string :lesson_id
+    t.integer :lesson_id
     t.integer :progress_id
   end
 end
