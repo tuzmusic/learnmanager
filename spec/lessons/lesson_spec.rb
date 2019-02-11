@@ -56,6 +56,36 @@ RSpec.describe Lesson do
   end  
 
   describe "Curriculum management methods" do
+    describe "submit" do
+      it "checks the lesson's status from the online info" do
+        
+      end
+
+      context "tests failing" do
+        it "asks if you want to submit even though you have failing tests" do
+          
+        end
+      end
+
+      context "tests passing" do
+        it "doesn't ask anything" do
+          
+        end
+      end
+
+      it "submits the pull request" do
+        
+      end
+
+      it "updates the current lesson object from the online info" do
+        
+      end
+
+      it "updates the user's progress from the online info" do
+        
+      end
+    end
+    
     describe "next" do
       it "returns the next incomplete lesson" do
         
