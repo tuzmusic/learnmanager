@@ -1,5 +1,5 @@
 require 'bundler/setup'
-Bundler.require
+Bundler.require :default, :development 
 
 require 'rake'
 require 'active_record'
@@ -10,6 +10,7 @@ require 'date'
 DBNAME = "learnmanager"
 
 Dir[File.join(File.dirname(__FILE__), "../app/models", "*.rb")].each {|f| require f}
+Dir[File.join(File.dirname(__FILE__), "../lib", "*.rb")].each {|f| require f}
 # Dir[File.join(File.dirname(__FILE__), "../lib/support", "*.rb")].each {|f| require f}
 
 def connect
@@ -34,3 +35,7 @@ end
 connect
 require_relative "../env"
 ENV['LOGIN_URL'] = 'https://learn.co/sign_in?sign_in=true'
+
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, {js_errors: false})
+end

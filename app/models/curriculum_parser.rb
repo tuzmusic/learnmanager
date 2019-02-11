@@ -18,8 +18,10 @@ class CurriculumParser < LearnScraper
     @curriculum_hash ||=  JSON.parse(/\{.*\}/.match(hash_string)[0])
   end
 
-  def self.seed_curriculum
+  def seed_curriculum
+    binding.pry
     curriculum_hash['topics'].each do |topic_hash|
+      binding.pry
       Topic.create ActiveSupport::JSON.decode(topic_hash)
       topic_hash['units'].each do |unit_hash|
         Topic.units.create ActiveSupport::JSON.decode(unit_hash)

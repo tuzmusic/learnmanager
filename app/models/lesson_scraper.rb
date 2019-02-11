@@ -28,8 +28,8 @@ class LearnScraper
 
   def log_in # delivers us to the user's home page
     s.visit ENV['LOGIN_URL']
-    s.fill_in 'Email Address', with: @email
-    s.fill_in 'Password', with: @password
+    s.fill_in 'Email Address', with: @email || ENV['LEARN_USERNAME']
+    s.fill_in 'Password', with: @password || ENV['LEARN_PASSWORD']
     s.click_on 'Sign in'
   end
 end
